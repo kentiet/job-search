@@ -14,6 +14,7 @@
               class="h-full ml-9 first:ml-0"
               v-for="menuItem in menuItems"
               :key="menuItem"
+              data-test="main-nav-list-item"
             >
               <a href="" class="flex items-center h-full py-2.5">{{
                 menuItem
@@ -21,14 +22,28 @@
             </li>
           </ul>
         </nav>
+        <div class="flex items-center h-full ml-auto">
+          <action-button
+            v-if="!isLoggedIn"
+            data-test="login-button"
+            @click="loginUser"
+          />
+          <profile-image v-else data-test="profile-image" />
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import ActionButton from "./ActionButton.vue";
+import ProfileImage from "./ProfileImage.vue";
 export default {
   name: "MainNav",
+  components: {
+    ActionButton,
+    ProfileImage,
+  },
   setup() {
     return {};
   },
@@ -44,7 +59,13 @@ export default {
         "Students",
         "Jobs",
       ],
+      isLoggedIn: false,
     };
+  },
+  methods: {
+    loginUser() {
+      this.isLoggedIn = true;
+    },
   },
 };
 </script>
