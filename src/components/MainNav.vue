@@ -24,6 +24,7 @@
         </nav>
         <div class="flex items-center h-full ml-auto">
           <action-button
+            text="Sign In"
             v-if="!isLoggedIn"
             data-test="login-button"
             @click="loginUser"
