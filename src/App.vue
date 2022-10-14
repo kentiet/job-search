@@ -1,9 +1,13 @@
 <template>
-  <main-nav />
+  <div>
+    <main-nav />
+    <hero />
+  </div>
 </template>
 
 <script>
 import MainNav from "@/components/MainNav.vue";
-export default { components: { MainNav } };
+import Hero from "./components/Hero.vue";
+export default { components: { MainNav, Hero } };
 </script>
 <style scoped></style>
